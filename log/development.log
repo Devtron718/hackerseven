@@ -1,0 +1,57 @@
+  [1m[35m (47.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (6.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8455852085116780785);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateAttacks (20170512225613)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (11.0ms)[0m  [1m[35mCREATE TABLE "attacks" ("id" serial primary key, "url" character varying, "element_id" character varying, "element_class" character varying, "success" boolean, "reported_at" timestamp, "rewarded_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170512225613"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBreaches (20170512230002)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "breaches" ("id" serial primary key, "attack_id" integer, "info" json, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE  INDEX  "index_breaches_on_attack_id" ON "breaches"  ("attack_id")[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170512230002"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-05-12 23:02:17.180116"], ["updated_at", "2017-05-12 23:02:17.180116"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8455852085116780785)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mAttack Load (1.5ms)[0m  [1m[34mSELECT  "attacks".* FROM "attacks" ORDER BY "attacks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mBreach Load (1.8ms)[0m  [1m[34mSELECT  "breaches".* FROM "breaches" ORDER BY "breaches"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "attacks" ("created_at", "updated_at") VALUES ($1, $2) RETURNING "id"[0m  [["created_at", "2017-05-12 23:11:21.725592"], ["updated_at", "2017-05-12 23:11:21.725592"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAttack Load (0.3ms)[0m  [1m[34mSELECT  "attacks".* FROM "attacks" WHERE "attacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "breaches" ("attack_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["attack_id", 1], ["created_at", "2017-05-12 23:11:32.744927"], ["updated_at", "2017-05-12 23:11:32.744927"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAttack Load (0.6ms)[0m  [1m[34mSELECT  "attacks".* FROM "attacks" ORDER BY "attacks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAttack Load (0.6ms)[0m  [1m[34mSELECT  "attacks".* FROM "attacks" ORDER BY "attacks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAttack Load (0.6ms)[0m  [1m[34mSELECT  "attacks".* FROM "attacks" WHERE "attacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBreach Load (0.5ms)[0m  [1m[34mSELECT "breaches".* FROM "breaches"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[31mDELETE FROM "breaches" WHERE "breaches"."id" = $1[0m  [["id", 1]]
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAttack Load (0.6ms)[0m  [1m[34mSELECT  "attacks".* FROM "attacks" WHERE "attacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "breaches" ("attack_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["attack_id", 1], ["created_at", "2017-05-12 23:12:15.787898"], ["updated_at", "2017-05-12 23:12:15.787898"]]
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "breaches" SET "id" = $1, "attack_id" = $2, "created_at" = $3, "updated_at" = $4 WHERE "breaches"."id" = $5[0m  [["id", 2], ["attack_id", 1], ["created_at", "2017-05-12 23:12:15.787898"], ["updated_at", "2017-05-12 23:12:15.787898"], ["id", 2]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAttack Load (0.7ms)[0m  [1m[34mSELECT  "attacks".* FROM "attacks" ORDER BY "attacks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAttack Load (0.7ms)[0m  [1m[34mSELECT  "attacks".* FROM "attacks" ORDER BY "attacks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mAttack Load (0.5ms)[0m  [1m[34mSELECT  "attacks".* FROM "attacks" WHERE "attacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mBreach Load (0.7ms)[0m  [1m[34mSELECT "breaches".* FROM "breaches"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[31mDELETE FROM "breaches" WHERE "breaches"."id" = $1[0m  [["id", 2]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAttack Load (0.4ms)[0m  [1m[34mSELECT  "attacks".* FROM "attacks" WHERE "attacks"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "breaches" ("attack_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["attack_id", 1], ["created_at", "2017-05-12 23:13:30.232718"], ["updated_at", "2017-05-12 23:13:30.232718"]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "attacks" SET "success" = $1, "updated_at" = $2 WHERE "attacks"."id" = $3[0m  [["success", "t"], ["updated_at", "2017-05-12 23:13:30.235104"], ["id", 1]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mAttack Load (0.8ms)[0m  [1m[34mSELECT  "attacks".* FROM "attacks" ORDER BY "attacks"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
