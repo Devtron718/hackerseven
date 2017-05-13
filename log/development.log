@@ -311,3 +311,171 @@ Processing by BreachesController#create as */*
 Completed 200 OK in 59ms (ActiveRecord: 8.3ms)
 
 
+Started POST "/b" for 127.0.0.1 at 2017-05-12 20:54:12 -0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BreachesController#create as */*
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+Completed 200 OK in 55ms (ActiveRecord: 7.2ms)
+
+
+Started POST "/attack" for 127.0.0.1 at 2017-05-12 20:54:25 -0300
+Processing by AttacksController#create as */*
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+actionpack (5.0.3) lib/action_controller/metal/request_forgery_protection.rb:195:in `handle_unverified_request'
+actionpack (5.0.3) lib/action_controller/metal/request_forgery_protection.rb:223:in `handle_unverified_request'
+actionpack (5.0.3) lib/action_controller/metal/request_forgery_protection.rb:218:in `verify_authenticity_token'
+activesupport (5.0.3) lib/active_support/callbacks.rb:382:in `block in make_lambda'
+activesupport (5.0.3) lib/active_support/callbacks.rb:169:in `call'
+activesupport (5.0.3) lib/active_support/callbacks.rb:169:in `block (2 levels) in halting'
+actionpack (5.0.3) lib/abstract_controller/callbacks.rb:12:in `call'
+actionpack (5.0.3) lib/abstract_controller/callbacks.rb:12:in `block (2 levels) in <module:Callbacks>'
+activesupport (5.0.3) lib/active_support/callbacks.rb:170:in `call'
+activesupport (5.0.3) lib/active_support/callbacks.rb:170:in `block in halting'
+activesupport (5.0.3) lib/active_support/callbacks.rb:454:in `call'
+activesupport (5.0.3) lib/active_support/callbacks.rb:454:in `block in call'
+activesupport (5.0.3) lib/active_support/callbacks.rb:454:in `each'
+activesupport (5.0.3) lib/active_support/callbacks.rb:454:in `call'
+activesupport (5.0.3) lib/active_support/callbacks.rb:101:in `__run_callbacks__'
+activesupport (5.0.3) lib/active_support/callbacks.rb:750:in `_run_process_action_callbacks'
+activesupport (5.0.3) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.3) lib/abstract_controller/callbacks.rb:19:in `process_action'
+actionpack (5.0.3) lib/action_controller/metal/rescue.rb:20:in `process_action'
+actionpack (5.0.3) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+activesupport (5.0.3) lib/active_support/notifications.rb:164:in `block in instrument'
+activesupport (5.0.3) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+activesupport (5.0.3) lib/active_support/notifications.rb:164:in `instrument'
+actionpack (5.0.3) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+actionpack (5.0.3) lib/action_controller/metal/params_wrapper.rb:248:in `process_action'
+activerecord (5.0.3) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.3) lib/abstract_controller/base.rb:126:in `process'
+actionview (5.0.3) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.0.3) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.3) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.3) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.3) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.3) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.3) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.3) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.3) lib/action_dispatch/routing/route_set.rb:725:in `call'
+rack (2.0.2) lib/rack/etag.rb:25:in `call'
+rack (2.0.2) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.2) lib/rack/head.rb:12:in `call'
+rack (2.0.2) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.2) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.0.3) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.0.3) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.3) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.3) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.3) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.3) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.3) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.3) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.3) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+web-console (3.5.1) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.5.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `catch'
+web-console (3.5.1) lib/web_console/middleware.rb:18:in `call'
+actionpack (5.0.3) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.3) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.3) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.3) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.3) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.3) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.0.3) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.2) lib/rack/method_override.rb:22:in `call'
+rack (2.0.2) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.3) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.3) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.3) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.2) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.3) lib/rails/engine.rb:522:in `call'
+puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `call'
+puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  Rendering /Users/devinmiranda/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /Users/devinmiranda/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /Users/devinmiranda/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (6.2ms)
+  Rendering /Users/devinmiranda/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /Users/devinmiranda/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.3ms)
+  Rendering /Users/devinmiranda/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /Users/devinmiranda/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/devinmiranda/.rbenv/versions/2.2.2/lib/ruby/gems/2.2.0/gems/actionpack-5.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (110.9ms)
+  [1m[36mActiveRecord::SchemaMigration Load (7.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (7.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8455852085116780785);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateBreaches (20170512230002)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class CreateBreaches < ActiveRecord::Migration[4.2] (called from load at /Users/devinmiranda/.rbenv/versions/2.2.2/bin/rake:23)
+  [1m[35m (29.1ms)[0m  [1m[35mDROP TABLE "breaches"[0m
+  [1m[35mSQL (2.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20170512230002"]]
+  [1m[35m (7.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8455852085116780785)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8455852085116780785);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateAttacks (20170512225613)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.6ms)[0m  [1m[35mDROP TABLE "attacks"[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20170512225613"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8455852085116780785)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8455852085116780785);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateAttacks (20170512225613)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (36.6ms)[0m  [1m[35mCREATE TABLE "attacks" ("id" serial primary key, "host_id" integer, "url" character varying, "element_id" character varying, "element_class" character varying, "xpath" character varying, "success" boolean, "reported_at" timestamp, "rewarded_at" timestamp, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_attacks_on_host_id" ON "attacks"  ("host_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170512225613"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBreaches (20170512230002)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.5ms)[0m  [1m[35mCREATE TABLE "breaches" ("id" serial primary key, "attack_id" integer, "host_id" integer, "info" json, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_breaches_on_attack_id" ON "breaches"  ("attack_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE  INDEX  "index_breaches_on_host_id" ON "breaches"  ("host_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170512230002"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateHosts (20170513150634)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE TABLE "hosts" ("id" serial primary key, "name" character varying, "bounty_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE  INDEX  "index_hosts_on_bounty_id" ON "hosts"  ("bounty_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170513150634"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateMisses (20170513150639)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "misses" ("id" serial primary key, "host_id" integer, "url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_misses_on_host_id" ON "misses"  ("host_id")[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170513150639"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateEvents (20170513150644)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.5ms)[0m  [1m[35mCREATE TABLE "events" ("id" serial primary key, "name" character varying, "url" character varying, "host_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE  INDEX  "index_events_on_host_id" ON "events"  ("host_id")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170513150644"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateBounties (20170513151248)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (4.9ms)[0m  [1m[35mCREATE TABLE "bounties" ("id" serial primary key, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170513151248"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8455852085116780785)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
