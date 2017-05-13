@@ -14,7 +14,6 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 log/*
-log/development.log
 !/log/.keep
 /tmp
 /public/images
